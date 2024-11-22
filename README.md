@@ -1,14 +1,15 @@
-To-Do List Application
-Description
+###To-Do List Application###
+Description:-
 This To-Do List application allows users to manage tasks with features such as creating, viewing, updating, and deleting tasks. Tasks are stored in a MongoDB database, ensuring that they persist across sessions.
 
-Features
-Create tasks with a title and description.
-View all tasks.
-Update task details.
-Delete tasks.
-Data is persisted using MongoDB.
-Installation
+***Features***
+1.Create tasks with a title and description.
+2.View all tasks.
+3.Update task details.
+4.Delete tasks.
+
+
+***Installation***
 Clone the repository:
 
 git clone https://github.com/your-username/todo-app.git
@@ -32,77 +33,91 @@ Start the server:
 npm start
 The application will be running on http://localhost:3000.
 
-API Endpoints
-POST /tasks
-Description: Create a new task.
-Request Body:
+***API Endpoints***
 
-{
-  "title": "Task Title",
-  "description": "Task Description"
-}
-Response:
-
-{
-  "task": {
-    "_id": "task-id",
+1.POST /tasks
+  Description: Create a new task.
+  Request Body:
+  
+  {
     "title": "Task Title",
     "description": "Task Description"
   }
-}
-GET /tasks
-Description: Retrieve all tasks.
-Response:
-
-{
-  "allTasks": [
-    {
+  
+  Response:
+  
+  {
+    "task": {
       "_id": "task-id",
       "title": "Task Title",
       "description": "Task Description"
     }
-  ]
-}
-PUT /tasks/:id
-Description: Update an existing task by ID.
-Request Body:
+  }
 
-{
-  "title": "Updated Task Title",
-  "description": "Updated Task Description"
-}
-Response:
 
-{
-  "message": "Task updated",
-  "task": {
-    "_id": "task-id",
+2.GET /tasks
+  Description: Retrieve all tasks.
+  Response:
+  
+  {
+    "allTasks": [
+      {
+        "_id": "task-id",
+        "title": "Task Title",
+        "description": "Task Description"
+      }
+    ]
+  }
+
+
+3.PUT /tasks/:id
+  Description: Update an existing task by ID.
+  Request Body:
+  
+  {
     "title": "Updated Task Title",
     "description": "Updated Task Description"
   }
-}
-DELETE /tasks/:id
-Description: Delete a task by ID.
-Response:
+  
+  Response:
+  
+  {
+    "message": "Task updated",
+    "task": {
+      "_id": "task-id",
+      "title": "Updated Task Title",
+      "description": "Updated Task Description"
+    }
+  }
 
-{
-  "message": "Task deleted successfully"
-}
-Code Structure
+
+4.DELETE /tasks/:id
+  Description: Delete a task by ID.
+  Response:
+  
+  {
+    "message": "Task deleted successfully"
+  }
+
+
+***Code Structure***
 The application follows a simple model-view-controller (MVC) pattern. The key parts of the project are:
 
-models/: Contains the task.model.js file where the Mongoose schema for the Task is defined.
+->models/: Contains the task.model.js file where the Mongoose schema for the Task is defined.
 
-task.model.js defines the structure of a task, including the title and description fields.
-controllers/: Contains the logic for handling HTTP requests for the tasks.
+->task.model.js defines the structure of a task, including the title and description fields.
 
-task.controller.js contains functions for creating, reading, updating, and deleting tasks. Each function is responsible for a specific operation on the task data.
-routes/: Contains the routes that define how API requests are mapped to controller actions.
+->controllers/: Contains the logic for handling HTTP requests for the tasks.
 
-task.routes.js sets up the routes for /tasks and binds them to the appropriate controller methods.
-server.js: This is the entry point of the application, where the server is configured and the routes are connected to the Express app.
+->task.controller.js contains functions for creating, reading, updating, and deleting tasks. Each function is responsible for a specific operation on the task data.
 
-Key Decisions
+->routes/: Contains the routes that define how API requests are mapped to controller actions.
+
+->task.routes.js sets up the routes for /tasks and binds them to the appropriate controller methods.
+
+->server.js: This is the entry point of the application, where the server is configured and the routes are connected to the Express app.
+
+***Key Decisions***
 Use of MongoDB: MongoDB was chosen for this application as it is a flexible, schema-less database, making it easy to store task data.
 
 Async/Await: The application uses async/await for asynchronous operations to simplify the code and make it more readable. This is especially useful when interacting with the database for creating, fetching, updating, or deleting tasks.
@@ -117,7 +132,8 @@ Status Codes: HTTP status codes are used appropriately to reflect the status of 
 404 Not Found when a task does not exist.
 500 Internal Server Error for unexpected errors.
 Testing the Application
-You can test the API endpoints using tools like Postman or cURL. Here are some example requests:
+
+***You can test the API endpoints using tools like Postman or cURL. Here are some example requests:***
 
 
 Create Task:-------------------------------------------------------------------------------------
